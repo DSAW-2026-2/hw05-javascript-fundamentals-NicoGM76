@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MicroERP Farmacia: catálogo e inventario para una gestión sencilla de productos farmacéuticos.">
+  <title>MicroERP Farmacia</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#inicio" aria-label="MicroERP Farmacia, ir al inicio">
+        <span class="brand-mark" aria-hidden="true">+</span>
+        <span>MicroERP Farmacia</span>
+      </a>
+
+      <button
+        class="menu-button"
+        id="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="main-navigation"
+      >
+        Menú
+      </button>
+
+      <nav id="main-navigation" class="main-navigation" aria-label="Navegación principal">
+        <a href="#inicio">Inicio</a>
+        <a href="#productos">Productos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Gestión de inventario farmacéutico</p>
+          <h1>Encuentra y controla productos de forma simple</h1>
+          <p class="hero-copy">
+            MicroERP reúne búsqueda de productos, consulta de existencias y solicitudes
+            de información en una experiencia web clara para clientes y personal de farmacia.
+          </p>
+          <a class="primary-button" href="#productos">Ver productos</a>
+        </div>
+
+        <aside class="shortcut-card" aria-label="Atajo de teclado disponible">
+          <span class="shortcut-icon" aria-hidden="true">⌨</span>
+          <div>
+            <strong>Búsqueda rápida</strong>
+            <p>Presiona <kbd>Ctrl</kbd> + <kbd>K</kbd> para ir al buscador.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="productos" class="section">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Catálogo</p>
+            <h2>Productos disponibles</h2>
+          </div>
+          <p id="results-count" class="results-count" aria-live="polite">6 productos</p>
+        </div>
+
+        <div class="search-wrapper">
+          <label for="product-search">Buscar por nombre, categoría o descripción</label>
+          <input
+            id="product-search"
+            type="search"
+            placeholder="Ejemplo: analgésico, vitamina..."
+            autocomplete="off"
+          >
+          <p class="search-help">El listado se actualiza con cada tecla. Atajo: Ctrl + K.</p>
+        </div>
+
+        <div id="product-list" class="product-grid">
+          <article class="product-card" data-search="acetaminofen analgesico dolor fiebre">
+            <span class="product-category">Analgésicos</span>
+            <h3>Acetaminofén 500 mg</h3>
+            <p>Tabletas para el manejo de dolor leve y fiebre.</p>
+            <span class="stock stock-good">Disponible</span>
+          </article>
+
+          <article class="product-card" data-search="ibuprofeno analgesico antiinflamatorio dolor">
+            <span class="product-category">Analgésicos</span>
+            <h3>Ibuprofeno 400 mg</h3>
+            <p>Antiinflamatorio de uso común para dolor e inflamación.</p>
+            <span class="stock stock-good">Disponible</span>
+          </article>
+
+          <article class="product-card" data-search="loratadina antihistaminico alergias">
+            <span class="product-category">Antialérgicos</span>
+            <h3>Loratadina 10 mg</h3>
+            <p>Antihistamínico para síntomas asociados con alergias.</p>
+            <span class="stock stock-low">Pocas unidades</span>
+          </article>
+
+          <article class="product-card" data-search="vitamina c suplemento vitaminas">
+            <span class="product-category">Vitaminas</span>
+            <h3>Vitamina C 500 mg</h3>
+            <p>Suplemento de vitamina C en tabletas.</p>
+            <span class="stock stock-good">Disponible</span>
+          </article>
+
+          <article class="product-card" data-search="suero oral hidratacion sales">
+            <span class="product-category">Hidratación</span>
+            <h3>Sales de rehidratación oral</h3>
+            <p>Mezcla en sobres para preparar solución de rehidratación.</p>
+            <span class="stock stock-good">Disponible</span>
+          </article>
+
+          <article class="product-card" data-search="alcohol antiseptico cuidado personal desinfeccion">
+            <span class="product-category">Cuidado personal</span>
+            <h3>Alcohol antiséptico 70%</h3>
+            <p>Solución antiséptica de uso externo.</p>
+            <span class="stock stock-low">Pocas unidades</span>
+          </article>
+        </div>
+
+        <p id="empty-results" class="empty-state" hidden>
+          No encontramos productos que coincidan con tu búsqueda.
+        </p>
+      </div>
+    </section>
+
+    <section id="contacto" class="section section-alt">
+      <div class="container form-layout">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Solicita información</h2>
+          <p>
+            Completa el formulario. Todos los campos son validados en el navegador
+            y los errores aparecen junto a cada campo.
+          </p>
+        </div>
+
+        <form id="contact-form" class="contact-form" novalidate>
+          <div class="form-field">
+            <label for="name">Nombre completo</label>
+            <input id="name" name="name" type="text" autocomplete="name" aria-describedby="name-error">
+            <p id="name-error" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input id="email" name="email" type="email" autocomplete="email" aria-describedby="email-error">
+            <p id="email-error" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="request-type">Tipo de solicitud</label>
+            <select id="request-type" name="requestType" aria-describedby="request-type-error">
+              <option value="">Selecciona una opción</option>
+              <option value="producto">Información de producto</option>
+              <option value="inventario">Consulta de inventario</option>
+              <option value="soporte">Soporte</option>
+            </select>
+            <p id="request-type-error" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field">
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              aria-describedby="message-error"
+              placeholder="Cuéntanos qué necesitas"
+            ></textarea>
+            <p id="message-error" class="error-message" aria-live="polite"></p>
+          </div>
+
+          <div class="form-field checkbox-field">
+            <input id="terms" name="terms" type="checkbox" aria-describedby="terms-error">
+            <label for="terms">Acepto el tratamiento de los datos enviados en este formulario.</label>
+            <p id="terms-error" class="error-message checkbox-error" aria-live="polite"></p>
+          </div>
+
+          <button class="primary-button submit-button" type="submit">Enviar solicitud</button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>MicroERP Farmacia · Proyecto académico DSAW 2026-2</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
